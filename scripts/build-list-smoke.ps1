@@ -215,6 +215,14 @@
         'EAL6_FreeRTOS_V611_Scheduler_Generic_Remove_Frames_Event_Coverage',
         'EAL6_FreeRTOS_V611_Scheduler_Generic_Insert_End_Frames_Event_Coverage',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Remove_Frames_Generic_Coverage',
+        'EAL6_FreeRTOS_V611_Scheduler_One_Due_Full_Family_Cutpoint_Composition',
+        'EAL6_FreeRTOS_V611_Scheduler_Managed_Task_Observation_Cutpoints',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Role_Wake_Ledgers',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Result_Shared_Defs',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Result_Event_Semantics',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Result_Observation_Snapshot_Pins',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Result_State_Assembler',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Result_Generated_Source_Capstone',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Rel',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Remove_Decoder_Remove1',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Remove_Predecessor',
@@ -790,6 +798,30 @@ switch ($session) {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Event_Remove_Frames_Generic_Coverage' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_One_Due_Full_Family_Cutpoint_Composition' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Managed_Task_Observation_Cutpoints' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Role_Wake_Ledgers' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Result_Shared_Defs' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Result_Event_Semantics' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Result_Observation_Snapshot_Pins' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Result_State_Assembler' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Result_Generated_Source_Capstone' {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Family_Remove_Core' {

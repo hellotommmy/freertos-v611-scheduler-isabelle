@@ -1548,3 +1548,79 @@ session EAL6_FreeRTOS_V611_Capstone_Assumption_Audit in "capstone_assumption_aud
     EAL6_FreeRTOS_V611_List_Raw_R6_Initialise_Insert_Remove_Sequence
   theories
     Capstone_Assumption_Audit
+
+session EAL6_FreeRTOS_V611_Scheduler_One_Due_Full_Family_Cutpoint_Composition in "scheduler_one_due_full_family_cutpoint_composition" =
+  EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_Reentry_GateH +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Generic_Root_Family_Coverage_Remove_Preserved
+    EAL6_FreeRTOS_V611_Scheduler_Generic_Remove_Frames_Event_Coverage
+    EAL6_FreeRTOS_V611_Scheduler_Event_Remove_Frames_Generic_Coverage
+    EAL6_FreeRTOS_V611_Scheduler_Generic_Root_Coverage_Insert_End
+    EAL6_FreeRTOS_V611_Scheduler_Generic_Insert_End_Frames_Event_Coverage
+  theories
+    Scheduler_One_Due_Full_Family_Cutpoint_Composition
+
+session EAL6_FreeRTOS_V611_Scheduler_Managed_Task_Observation_Cutpoints in "scheduler_managed_task_observation_cutpoints" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Snapshot_Projections +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Task_Observation_Insert_Frame
+    EAL6_FreeRTOS_V611_Scheduler_Generic_Root_Family_Coverage_Remove_Preserved
+    EAL6_FreeRTOS_V611_Scheduler_Generic_Remove_Frames_Event_Coverage
+    EAL6_FreeRTOS_V611_Scheduler_Event_Remove_Frames_Generic_Coverage
+  theories
+    Scheduler_Managed_Task_Observation_Cutpoints
+
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Role_Wake_Ledgers in "scheduler_due_prefix_generated_loop/strong_role_wake_ledgers" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_While_Connector +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Due_Prefix_Strong_Role_Wake_Ledgers
+
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Result_Shared_Defs in "scheduler_due_prefix_generated_loop/strong_step_shared_defs" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_While_Connector +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_One_Due_Full_Family_Cutpoint_Composition
+    EAL6_FreeRTOS_V611_Scheduler_One_Due_Tick_Exact_Globals
+  theories
+    Scheduler_Due_Prefix_Strong_Result_Shared_Defs
+
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Result_Event_Semantics in "scheduler_due_prefix_generated_loop/strong_step_event_semantics" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Result_Shared_Defs +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Due_Prefix_Strong_Result_Event_Semantics
+
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Result_Observation_Snapshot_Pins in "scheduler_due_prefix_generated_loop/strong_step_observation_snapshot_pins" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Result_Event_Semantics +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Managed_Task_Observation_Cutpoints
+  theories
+    Scheduler_Due_Prefix_Strong_Result_Observation_Snapshot_Pins
+
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Result_State_Assembler in "scheduler_due_prefix_generated_loop/strong_step_state_assembler" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Result_Observation_Snapshot_Pins +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Role_Wake_Ledgers
+  theories
+    Scheduler_Due_Prefix_Strong_Result_State_Assembler
+
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Result_Generated_Source_Capstone in "scheduler_due_prefix_generated_loop/strong_step_generated_source_capstone" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Result_State_Assembler +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Exact_Full_State_Propagation
+  theories
+    Scheduler_Due_Prefix_Strong_Result_Generated_Source_Capstone
