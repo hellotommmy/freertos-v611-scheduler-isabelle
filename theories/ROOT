@@ -1227,6 +1227,15 @@ session EAL6_FreeRTOS_V611_Scheduler_One_Due_Tick_Exact_Globals in "scheduler_du
   theories
     Scheduler_One_Due_Tick_Exact_Globals
 
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Exact_Full_State_Propagation in "scheduler_due_prefix_generated_loop/strong_while_connector/full_state_propagation" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Source_Step +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 300]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_One_Due_Tick_Exact_Globals
+  theories
+    Scheduler_Due_Prefix_Exact_Full_State_Propagation
+
 session EAL6_FreeRTOS_V611_Scheduler_Tick_Wrap_Modular in "scheduler_tick_wrap_modular" =
   EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Snapshot_Loop_Compat +
   options [document = false, quick_and_dirty = false, parallel_proofs = 0,

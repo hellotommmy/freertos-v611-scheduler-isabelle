@@ -199,6 +199,7 @@
         'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Snapshot_Loop_Compat',
         'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_While_Connector',
         'EAL6_FreeRTOS_V611_Scheduler_One_Due_Tick_Exact_Globals',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Exact_Full_State_Propagation',
         'EAL6_FreeRTOS_V611_Scheduler_Tick_Wrap_Modular',
         'EAL6_FreeRTOS_V611_Scheduler_Outer_Tick_Contract',
         'EAL6_FreeRTOS_V611_Scheduler_Task_Observation_Rel',
@@ -732,6 +733,9 @@ switch ($session) {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_One_Due_Tick_Exact_Globals' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Exact_Full_State_Propagation' {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Tick_Wrap_Modular' {
