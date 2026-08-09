@@ -1122,6 +1122,69 @@ session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Source in "scheduler_du
   theories
     Scheduler_Due_Prefix_Terminal_Source
 
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Core in "scheduler_due_prefix_generated_loop/generated_while_staircase/core" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Source +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Due_Prefix_Generated_While_Core
+
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Index in "scheduler_due_prefix_generated_loop/generated_while_staircase/index" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Core +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Due_Prefix_Generated_While_Index
+
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Terminal_Post in "scheduler_due_prefix_generated_loop/generated_while_staircase/terminal_post" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Index +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Due_Prefix_Generated_While_Terminal_Post
+
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Last_Due in "scheduler_due_prefix_generated_loop/generated_while_staircase/last_due" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Terminal_Post +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Due_Prefix_Generated_While_Last_Due
+
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_All_Due in "scheduler_due_prefix_generated_loop/generated_while_staircase/all_due" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Last_Due +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Due_Prefix_Generated_While_All_Due
+
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Zero in "scheduler_due_prefix_generated_loop/generated_while_staircase/zero" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_All_Due +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Due_Prefix_Generated_While_Zero
+
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Complete in "scheduler_due_prefix_generated_loop/generated_while_staircase/complete" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Zero +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Due_Prefix_Generated_While_Complete
+
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Finally in "scheduler_due_prefix_generated_loop/generated_while_staircase/finally" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Complete +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Due_Prefix_Generated_While_Finally
+
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While in "scheduler_due_prefix_generated_loop/generated_while" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Finally +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Due_Prefix_Generated_While
+
 session EAL6_FreeRTOS_V611_Scheduler_Resume_Outer_Quiet_Bool in "scheduler_resume_outer_quiet_bool" =
   EAL6_FreeRTOS_V611_Scheduler_Resume_Outer_Scaffold +
   options [document = false, quick_and_dirty = false, parallel_proofs = 0,

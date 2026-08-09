@@ -185,6 +185,15 @@
         'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Future_Body',
         'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Followup',
         'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Source',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Core',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Index',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Terminal_Post',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Last_Due',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_All_Due',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Zero',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Complete',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Finally',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While',
         'EAL6_FreeRTOS_V611_Scheduler_Task_Observation_Rel',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Rel',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Remove_Decoder_Remove1',
@@ -674,6 +683,33 @@ switch ($session) {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Source' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Core' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Index' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Terminal_Post' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Last_Due' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_All_Due' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Zero' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Complete' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Finally' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While' {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Family_Remove_Core' {
