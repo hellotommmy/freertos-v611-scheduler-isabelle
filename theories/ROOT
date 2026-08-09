@@ -1185,6 +1185,31 @@ session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While in "scheduler_du
   theories
     Scheduler_Due_Prefix_Generated_While
 
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Snapshot_Core in "scheduler_due_prefix_generated_loop/strong_snapshot/core" =
+  EAL6_FreeRTOS_V611_Scheduler_Generic_Root_Universe_Coverage +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 300]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_Base
+  theories
+    Scheduler_Due_Prefix_Strong_Snapshot_Core
+
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Snapshot_Projections in "scheduler_due_prefix_generated_loop/strong_snapshot/projections" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Snapshot_Core +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 300]
+  theories
+    Scheduler_Due_Prefix_Strong_Snapshot_Projections
+
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Snapshot_Loop_Compat in "scheduler_due_prefix_generated_loop/strong_snapshot/loop_compat" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Snapshot_Projections +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 300]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Exit_Aware_Invariant
+  theories
+    Scheduler_Due_Prefix_Strong_Snapshot_Loop_Compat
+
 session EAL6_FreeRTOS_V611_Scheduler_Resume_Outer_Quiet_Bool in "scheduler_resume_outer_quiet_bool" =
   EAL6_FreeRTOS_V611_Scheduler_Resume_Outer_Scaffold +
   options [document = false, quick_and_dirty = false, parallel_proofs = 0,
