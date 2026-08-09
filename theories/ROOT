@@ -1210,6 +1210,44 @@ session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Snapshot_Loop_Compat in "
   theories
     Scheduler_Due_Prefix_Strong_Snapshot_Loop_Compat
 
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_While_Connector in "scheduler_due_prefix_generated_loop/strong_while_connector" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Snapshot_Loop_Compat +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 300]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Finally
+  theories
+    Scheduler_Due_Prefix_Strong_While_Connector
+    Scheduler_Due_Prefix_Strong_Result_Components
+
+session EAL6_FreeRTOS_V611_Scheduler_One_Due_Tick_Exact_Globals in "scheduler_due_prefix_generated_loop/strong_while_connector/exact_globals" =
+  EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_Tick_Loop +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 300]
+  theories
+    Scheduler_One_Due_Tick_Exact_Globals
+
+session EAL6_FreeRTOS_V611_Scheduler_Tick_Wrap_Modular in "scheduler_tick_wrap_modular" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Snapshot_Loop_Compat +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 300]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_Generated
+  theories
+    Scheduler_Tick_Wrap_Modular
+
+session EAL6_FreeRTOS_V611_Scheduler_Outer_Tick_Contract in "scheduler_outer_tick_contract" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Snapshot_Loop_Compat +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 300]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While
+    EAL6_FreeRTOS_V611_Scheduler_Increment_Tick_Suspended_Refinement
+    EAL6_FreeRTOS_V611_Scheduler_Tick_Wrap_Modular
+    EAL6_FreeRTOS_V611_Scheduler_Concurrent_Contract_Interface
+  theories
+    Scheduler_Outer_Tick_Contract
+
 session EAL6_FreeRTOS_V611_Scheduler_Resume_Outer_Quiet_Bool in "scheduler_resume_outer_quiet_bool" =
   EAL6_FreeRTOS_V611_Scheduler_Resume_Outer_Scaffold +
   options [document = false, quick_and_dirty = false, parallel_proofs = 0,

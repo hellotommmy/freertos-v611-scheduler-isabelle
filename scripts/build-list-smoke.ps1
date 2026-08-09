@@ -197,6 +197,10 @@
         'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Snapshot_Core',
         'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Snapshot_Projections',
         'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Snapshot_Loop_Compat',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_While_Connector',
+        'EAL6_FreeRTOS_V611_Scheduler_One_Due_Tick_Exact_Globals',
+        'EAL6_FreeRTOS_V611_Scheduler_Tick_Wrap_Modular',
+        'EAL6_FreeRTOS_V611_Scheduler_Outer_Tick_Contract',
         'EAL6_FreeRTOS_V611_Scheduler_Task_Observation_Rel',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Rel',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Remove_Decoder_Remove1',
@@ -722,6 +726,18 @@ switch ($session) {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_Snapshot_Loop_Compat' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_While_Connector' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_One_Due_Tick_Exact_Globals' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Tick_Wrap_Modular' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Outer_Tick_Contract' {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Family_Remove_Core' {

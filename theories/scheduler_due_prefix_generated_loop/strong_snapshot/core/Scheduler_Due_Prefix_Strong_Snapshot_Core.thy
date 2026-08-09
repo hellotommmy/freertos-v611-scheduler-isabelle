@@ -63,6 +63,7 @@ where
      sa_live a \<subseteq> managed \<and>
      xlist_wf termination \<and>
      generic_ring termination \<and>
+     tail_cursor_wf termination \<and>
      generic_task_set termination = managed - sa_live a"
 
 definition strong_generic_role_projection ::
@@ -238,6 +239,11 @@ next
     qed
   qed
 qed
+
+lemma strong_managed_domain_tail_cursorD:
+  assumes "strong_managed_domain_rel a termination managed"
+  shows "tail_cursor_wf termination"
+  using assms by (simp add: strong_managed_domain_rel_def)
 
 lemma scheduler_managed_scalar_rel_no_retired:
   assumes no_retired: "managed = sa_live a"
