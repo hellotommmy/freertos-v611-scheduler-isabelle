@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the audited P2 mathematical progress manuscript as a polished PDF.
+"""Render the fixed-instance P2 mathematical progress manuscript as a polished PDF.
 
 The source manuscript is deliberately treated as read-only.  The renderer uses
 ReportLab for the document, Matplotlib only for high-resolution display-math
@@ -43,11 +43,11 @@ from reportlab.platypus import (
 
 
 TITLE = (
-    "A Conditional Source-to-Abstract Functional-Correctness Theorem "
-    "for FreeRTOS V6.1.1 vTaskDelay(2)"
+    "Artifact-Bound Non-Vacuous Single-Path Refinement "
+    "of FreeRTOS V6.1.1 vTaskDelay(2)"
 )
-SHORT_TITLE = "FreeRTOS V6.1.1 P2 Mathematical Progress"
-STATUS_LINE = "Conditional theorem green - frozen-build non-vacuity open"
+SHORT_TITLE = "FreeRTOS V6.1.1 Fixed P2 Witness"
+STATUS_LINE = "Fixed P2 witness checked; universal functional correctness open"
 
 NAVY = colors.HexColor("#17324D")
 TEAL = colors.HexColor("#177D7A")
@@ -267,7 +267,7 @@ def make_styles(body_size: float) -> dict[str, ParagraphStyle]:
             fontSize=body_size,
             leading=body_size * 1.27,
             textColor=INK,
-            alignment=TA_JUSTIFY,
+            alignment=TA_LEFT,
             spaceAfter=3.2,
             allowWidows=0,
             allowOrphans=0,
@@ -516,6 +516,10 @@ class Renderer:
             fractions = [0.27, 0.365, 0.365]
         elif ncols == 3:
             fractions = [0.24, 0.51, 0.25]
+        elif ncols == 4 and "run identifier" in heading:
+            # Run identifiers are long and must wrap in a deliberately wide
+            # evidence column; equal quarters create tall, brittle rows.
+            fractions = [0.20, 0.48, 0.12, 0.20]
         elif ncols == 5:
             fractions = [0.22, 0.235, 0.105, 0.13, 0.31]
         else:
@@ -733,7 +737,7 @@ def header_footer(canvas, document) -> None:
         canvas.setFont("DejaVuSans", 6.8)
         canvas.setFillColor(MUTED)
         canvas.drawString(left, height - 9.6 * mm, SHORT_TITLE)
-        canvas.drawRightString(right, height - 9.6 * mm, "Status date: 1 August 2026")
+        canvas.drawRightString(right, height - 9.6 * mm, "Status date: 2 August 2026")
     canvas.setStrokeColor(RULE)
     canvas.setLineWidth(0.45)
     canvas.line(left, 11.5 * mm, right, 11.5 * mm)
@@ -760,7 +764,7 @@ def render(input_path: Path, output_path: Path, tmp_dir: Path, font_dir: Path, b
         pagesize=A4,
         title=TITLE,
         author="Blind Isabelle/HOL reconstruction project",
-        subject="Conditional FreeRTOS V6.1.1 P2 source-to-abstract refinement",
+        subject="Fixed-instance FreeRTOS V6.1.1 P2 source-to-abstract witness; universal correctness open",
         creator="ReportLab renderer with embedded DejaVu fonts",
         **margins,
     )
