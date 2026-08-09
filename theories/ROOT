@@ -9,7 +9,7 @@ session EAL6_FreeRTOS_V611_Model in "model" = HOL +
     XList_Model
 
 session EAL6_FreeRTOS_V611_Scheduler_Abstract_Model in "scheduler_abs_model" = EAL6_FreeRTOS_V611_Model +
-  options [quick_and_dirty = false, parallel_proofs = 0, timeout = 60]
+  options [quick_and_dirty = false, parallel_proofs = 0, timeout = 120]
   sessions
     "HOL-Library"
   theories
@@ -954,6 +954,38 @@ session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Invariant in "scheduler_due_pref
     timeout = 120]
   theories
     Scheduler_Due_Prefix_Invariant
+
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Pure_Frame in "scheduler_due_prefix_generated_loop/pure_frame" =
+  EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_Reentry_Pure +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 300]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Invariant
+  theories
+    Scheduler_Due_Prefix_Pure_Frame
+
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Gate_Premises in "scheduler_due_prefix_generated_loop/gate_premises" =
+  EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_Tick_Loop +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 300]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Pure_Frame
+  theories
+    Scheduler_Due_Prefix_Gate_Premises
+
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Source_Step in "scheduler_due_prefix_generated_loop/source_step" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Gate_Premises +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 300]
+  theories
+    Scheduler_Due_Prefix_Source_Step
+
+session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Exit_Aware_Invariant in "scheduler_due_prefix_generated_loop/exit_aware" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Invariant +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 300]
+  theories
+    Scheduler_Due_Prefix_Exit_Aware_Invariant
 
 session EAL6_FreeRTOS_V611_Scheduler_Resume_Outer_Quiet_Bool in "scheduler_resume_outer_quiet_bool" =
   EAL6_FreeRTOS_V611_Scheduler_Resume_Outer_Scaffold +

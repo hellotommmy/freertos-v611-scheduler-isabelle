@@ -162,6 +162,10 @@
         'EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_Reentry_Pure',
         'EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_Reentry_GateH',
         'EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_Tick_Loop',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Pure_Frame',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Gate_Premises',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Source_Step',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Exit_Aware_Invariant',
         'EAL6_FreeRTOS_V611_Scheduler_Task_Observation_Rel',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Rel',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Remove_Decoder_Remove1',
@@ -582,6 +586,18 @@ switch ($session) {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_Tick_Loop' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Pure_Frame' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Gate_Premises' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Source_Step' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Exit_Aware_Invariant' {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Family_Remove_Core' {
