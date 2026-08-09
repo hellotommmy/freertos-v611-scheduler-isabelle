@@ -166,6 +166,25 @@
         'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Gate_Premises',
         'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Source_Step',
         'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Exit_Aware_Invariant',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Defs',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Future_Ready',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Gate_Projections',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Last_Due_Ring',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Removed_Relabel',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Head_Raw',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Head_Owner_Witness',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Gate_Decode',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Head_Ptr_Eq',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Future_Decode',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Witness_Decode',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Head_Identity',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Head_Owner',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Exit',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Bridge',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Empty_Body',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Future_Body',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Followup',
+        'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Source',
         'EAL6_FreeRTOS_V611_Scheduler_Task_Observation_Rel',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Rel',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Remove_Decoder_Remove1',
@@ -598,6 +617,63 @@ switch ($session) {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Exit_Aware_Invariant' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Defs' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Future_Ready' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Gate_Projections' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Last_Due_Ring' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Removed_Relabel' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Head_Raw' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Head_Owner_Witness' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Gate_Decode' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Head_Ptr_Eq' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Future_Decode' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Witness_Decode' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Head_Identity' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Head_Owner' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Exit' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Bridge' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Empty_Body' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Future_Body' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Followup' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Terminal_Source' {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Family_Remove_Core' {
