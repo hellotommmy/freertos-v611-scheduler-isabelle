@@ -760,6 +760,113 @@ session EAL6_FreeRTOS_V611_Scheduler_Task_Observation_Rel in "scheduler_task_obs
   theories
     Scheduler_Task_Observation_Rel
 
+session EAL6_FreeRTOS_V611_Scheduler_Task_Observation_Heap_Frame in "scheduler_task_observation_frames/heap_frame" =
+  EAL6_FreeRTOS_V611_Scheduler_Task_Observation_Rel +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_List_Family_Frame_Capstone
+    EAL6_FreeRTOS_V611_Scheduler_Delay_Suspended_Core
+  theories
+    Scheduler_Task_Observation_Heap_Frame
+
+session EAL6_FreeRTOS_V611_Scheduler_Task_Observation_Remove_Frame in "scheduler_task_observation_frames/remove_frame" =
+  EAL6_FreeRTOS_V611_Scheduler_Task_Observation_Heap_Frame +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Owner_Frame
+  theories
+    Scheduler_Task_Observation_Remove_Frame
+
+session EAL6_FreeRTOS_V611_Scheduler_Task_Observation_Insert_Frame in "scheduler_task_observation_frames/insert_frame" =
+  EAL6_FreeRTOS_V611_Scheduler_Task_Observation_Remove_Frame +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Insert_Owner_Frame
+  theories
+    Scheduler_Task_Observation_Insert_Frame
+
+session EAL6_FreeRTOS_V611_Scheduler_Global_Coverage_Generic_Heap_Frame in "scheduler_due_prefix_generated_loop/strong_while_connector/global_audit/coverage_heap_frame/generic" =
+  EAL6_FreeRTOS_V611_Scheduler_Generic_Root_Universe_Coverage_Core +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Delay_Suspended_Core
+  theories
+    Scheduler_Global_Coverage_Generic_Heap_Frame
+
+session EAL6_FreeRTOS_V611_Scheduler_Global_Coverage_Event_Heap_Frame in "scheduler_due_prefix_generated_loop/strong_while_connector/global_audit/coverage_heap_frame/event" =
+  EAL6_FreeRTOS_V611_Scheduler_Global_Coverage_Generic_Heap_Frame +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Event_Heap_Frame
+  theories
+    Scheduler_Global_Coverage_Event_Heap_Frame
+
+session EAL6_FreeRTOS_V611_Scheduler_Global_Coverage_Optional_Event_Remove in "scheduler_due_prefix_generated_loop/strong_while_connector/global_audit/optional_event_remove" =
+  EAL6_FreeRTOS_V611_Scheduler_Global_Coverage_Event_Heap_Frame +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Remove_Preservation
+  theories
+    Scheduler_Global_Coverage_Optional_Event_Remove
+
+session EAL6_FreeRTOS_V611_Scheduler_Generic_Root_Family_Coverage_Remove_Preserved in "scheduler_generic_root_family_coverage_remove_preserved" =
+  EAL6_FreeRTOS_V611_Scheduler_Generic_Root_Universe_Coverage_Core +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Node_Kind_Family_Remove_Preservation
+  theories
+    Scheduler_Generic_Root_Family_Coverage_Remove_Preserved
+
+session EAL6_FreeRTOS_V611_Scheduler_Generic_Root_Coverage_Insert_End in "scheduler_generic_root_coverage_insert_end" =
+  EAL6_FreeRTOS_V611_Scheduler_Generic_Root_Universe_Coverage_Core +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Container_Frame
+  theories
+    Scheduler_Generic_Root_Coverage_Insert_End
+
+session EAL6_FreeRTOS_V611_Scheduler_Generic_Event_Root_Family_Coverage_Cross_Storage in "scheduler_generic_event_root_family_coverage_cross_storage" =
+  EAL6_FreeRTOS_V611_Scheduler_Generic_Root_Universe_Coverage +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Generic_Event_Root_Family_Coverage_Cross_Storage
+
+session EAL6_FreeRTOS_V611_Scheduler_Generic_Remove_Frames_Event_Coverage in "scheduler_generic_remove_frames_event_coverage" =
+  EAL6_FreeRTOS_V611_Scheduler_Generic_Event_Root_Family_Coverage_Cross_Storage +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Global_Coverage_Event_Heap_Frame
+  theories
+    Scheduler_Generic_Remove_Frames_Event_Coverage
+
+session EAL6_FreeRTOS_V611_Scheduler_Generic_Insert_End_Frames_Event_Coverage in "scheduler_generic_insert_end_frames_event_coverage" =
+  EAL6_FreeRTOS_V611_Scheduler_Generic_Event_Root_Family_Coverage_Cross_Storage +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Global_Coverage_Event_Heap_Frame
+  theories
+    Scheduler_Generic_Insert_End_Frames_Event_Coverage
+
+session EAL6_FreeRTOS_V611_Scheduler_Event_Remove_Frames_Generic_Coverage in "scheduler_event_remove_frames_generic_coverage" =
+  EAL6_FreeRTOS_V611_Scheduler_Generic_Event_Root_Family_Coverage_Cross_Storage +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Global_Coverage_Optional_Event_Remove
+  theories
+    Scheduler_Event_Remove_Frames_Generic_Coverage
+
 session EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Scaffold in "scheduler_unlocked_tick_scaffold" =
   EAL6_FreeRTOS_V611_Scheduler_Resume_Outer_Scaffold +
   options [document = false, quick_and_dirty = false, parallel_proofs = 0,

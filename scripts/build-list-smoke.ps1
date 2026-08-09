@@ -203,6 +203,18 @@
         'EAL6_FreeRTOS_V611_Scheduler_Tick_Wrap_Modular',
         'EAL6_FreeRTOS_V611_Scheduler_Outer_Tick_Contract',
         'EAL6_FreeRTOS_V611_Scheduler_Task_Observation_Rel',
+        'EAL6_FreeRTOS_V611_Scheduler_Task_Observation_Heap_Frame',
+        'EAL6_FreeRTOS_V611_Scheduler_Task_Observation_Remove_Frame',
+        'EAL6_FreeRTOS_V611_Scheduler_Task_Observation_Insert_Frame',
+        'EAL6_FreeRTOS_V611_Scheduler_Global_Coverage_Generic_Heap_Frame',
+        'EAL6_FreeRTOS_V611_Scheduler_Global_Coverage_Event_Heap_Frame',
+        'EAL6_FreeRTOS_V611_Scheduler_Global_Coverage_Optional_Event_Remove',
+        'EAL6_FreeRTOS_V611_Scheduler_Generic_Root_Family_Coverage_Remove_Preserved',
+        'EAL6_FreeRTOS_V611_Scheduler_Generic_Root_Coverage_Insert_End',
+        'EAL6_FreeRTOS_V611_Scheduler_Generic_Event_Root_Family_Coverage_Cross_Storage',
+        'EAL6_FreeRTOS_V611_Scheduler_Generic_Remove_Frames_Event_Coverage',
+        'EAL6_FreeRTOS_V611_Scheduler_Generic_Insert_End_Frames_Event_Coverage',
+        'EAL6_FreeRTOS_V611_Scheduler_Event_Remove_Frames_Generic_Coverage',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Rel',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Remove_Decoder_Remove1',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Remove_Predecessor',
@@ -742,6 +754,42 @@ switch ($session) {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Outer_Tick_Contract' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Task_Observation_Heap_Frame' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Task_Observation_Remove_Frame' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Task_Observation_Insert_Frame' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Global_Coverage_Generic_Heap_Frame' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Global_Coverage_Event_Heap_Frame' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Global_Coverage_Optional_Event_Remove' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Generic_Root_Family_Coverage_Remove_Preserved' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Generic_Root_Coverage_Insert_End' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Generic_Event_Root_Family_Coverage_Cross_Storage' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Generic_Remove_Frames_Event_Coverage' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Generic_Insert_End_Frames_Event_Coverage' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Event_Remove_Frames_Generic_Coverage' {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Family_Remove_Core' {
