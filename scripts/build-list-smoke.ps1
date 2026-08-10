@@ -258,6 +258,42 @@
         'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Invariants',
         'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Snapshots',
         'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Preservation',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Pointer_Bridge',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Bridges',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Role_Wake',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Family_State',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Snapshot_State',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Strong_State_Core',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Nonlast_Capstone',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Empty_State',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Empty_Result',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Empty_Bare',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Empty_Finally',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_Ready',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_State',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_Result',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_Bare',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_Finally',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Defs',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Index',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Zero',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Terminal_Defs',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Terminal_Facts',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Terminal_Public',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Terminal_Adapter',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Complete',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Pure_Entry',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Snapshot_Core',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Snapshot_Tasks',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Managed_Gate_Context',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Managed_Gate_Pure',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Managed_Gate_Raw',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Managed_Entry_Defs',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Managed_Entry_Assembler',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Prefix_Capstone',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Pipeline_Capstone',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Outer_Tick_Connector',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Rel',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Remove_Decoder_Remove1',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Remove_Predecessor',
@@ -962,6 +998,114 @@ switch ($session) {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Preservation' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Pointer_Bridge' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Bridges' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Role_Wake' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Family_State' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Snapshot_State' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Strong_State_Core' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Nonlast_Capstone' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Empty_State' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Empty_Result' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Empty_Bare' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Empty_Finally' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_Ready' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_State' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_Result' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_Bare' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_Finally' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Defs' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Index' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Zero' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Terminal_Defs' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Terminal_Facts' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Terminal_Public' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Terminal_Adapter' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Complete' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Pure_Entry' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Snapshot_Core' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Snapshot_Tasks' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Managed_Gate_Context' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Managed_Gate_Pure' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Managed_Gate_Raw' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Managed_Entry_Defs' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Managed_Entry_Assembler' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Prefix_Capstone' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Pipeline_Capstone' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Outer_Tick_Connector' {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Family_Remove_Core' {

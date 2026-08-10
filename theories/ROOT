@@ -1906,3 +1906,282 @@ session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Preservation in "sch
     timeout = 300]
   theories
     Scheduler_Delayed_Cursor_General_Preservation
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Pointer_Bridge in "scheduler_delayed_cursor_generalization/pointer_bridge" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Snapshots +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Pointer_Bridge
+  theories
+    Scheduler_Delayed_Cursor_General_Pointer_Bridge
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Bridges in "scheduler_delayed_cursor_generalization/generated_due_step/bridges" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Preservation +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Managed_Gate_Nonlast_Source
+  theories
+    Scheduler_Delayed_Cursor_General_Due_Step_Bridges
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Role_Wake in "scheduler_delayed_cursor_generalization/generated_due_step/role_wake" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Bridges +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Delayed_Cursor_General_Due_Step_Role_Wake
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Family_State in "scheduler_delayed_cursor_generalization/generated_due_step/family_state" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Role_Wake +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Delayed_Cursor_General_Due_Step_Family_State
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Snapshot_State in "scheduler_delayed_cursor_generalization/generated_due_step/snapshot_state" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Family_State +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Delayed_Cursor_General_Due_Step_Snapshot_State
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Strong_State_Core in "scheduler_delayed_cursor_generalization/generated_due_step/strong_state_core" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Snapshot_State +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Delayed_Cursor_General_Due_Step_Strong_State_Core
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Nonlast_Capstone in "scheduler_delayed_cursor_generalization/generated_due_step/nonlast_capstone" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Strong_State_Core +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Delayed_Cursor_General_Due_Step_Nonlast_Capstone
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Empty_State in "scheduler_delayed_cursor_generalization/generated_terminal/empty_state" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Strong_State_Core +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Delayed_Cursor_General_Terminal_Empty_State
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Empty_Result in "scheduler_delayed_cursor_generalization/generated_terminal/empty_result" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Empty_State +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Managed_Gate_Terminal
+  theories
+    Scheduler_Delayed_Cursor_General_Terminal_Empty_Result
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Empty_Bare in "scheduler_delayed_cursor_generalization/generated_terminal/empty_bare" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Empty_Result +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Delayed_Cursor_General_Terminal_Empty_Bare
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Empty_Finally in "scheduler_delayed_cursor_generalization/generated_terminal/empty_finally" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Empty_Bare +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Delayed_Cursor_General_Terminal_Empty_Finally
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_Ready in "scheduler_delayed_cursor_generalization/generated_terminal/future_ready" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Empty_Finally +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Delayed_Cursor_General_Terminal_Future_Ready
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_State in "scheduler_delayed_cursor_generalization/generated_terminal/future_state" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_Ready +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Delayed_Cursor_General_Terminal_Future_State
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_Result in "scheduler_delayed_cursor_generalization/generated_terminal/future_result" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_State +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Delayed_Cursor_General_Terminal_Future_Result
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_Bare in "scheduler_delayed_cursor_generalization/generated_terminal/future_bare" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_Result +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Delayed_Cursor_General_Terminal_Future_Bare
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_Finally in "scheduler_delayed_cursor_generalization/generated_terminal/future_finally" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_Bare +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Delayed_Cursor_General_Terminal_Future_Finally
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Defs in "scheduler_delayed_cursor_generalization/generated_managed_while/defs" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Nonlast_Capstone +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Generated_While_Finally
+  theories
+    Scheduler_Delayed_Cursor_General_Managed_While_Defs
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Index in "scheduler_delayed_cursor_generalization/generated_managed_while/index" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Defs +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Delayed_Cursor_General_Managed_While_Index
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Zero in "scheduler_delayed_cursor_generalization/generated_managed_while/zero" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Index +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_Ready
+  theories
+    Scheduler_Delayed_Cursor_General_Managed_While_Zero
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Terminal_Defs in "scheduler_delayed_cursor_generalization/generated_managed_while/terminal_defs" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Zero +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Terminal_Future_Finally
+  theories
+    Scheduler_Delayed_Cursor_General_Managed_While_Terminal_Defs
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Terminal_Facts in "scheduler_delayed_cursor_generalization/generated_managed_while/terminal_facts" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Terminal_Defs +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Delayed_Cursor_General_Managed_While_Terminal_Facts
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Terminal_Public in "scheduler_delayed_cursor_generalization/generated_managed_while/terminal_public" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Terminal_Facts +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Delayed_Cursor_General_Managed_While_Terminal_Public
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Terminal_Adapter in "scheduler_delayed_cursor_generalization/generated_managed_while/terminal_adapter" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Terminal_Public +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Delayed_Cursor_General_Managed_While_Terminal_Adapter
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While in "scheduler_delayed_cursor_generalization/generated_managed_while/while" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Terminal_Adapter +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Delayed_Cursor_General_Managed_While
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Complete in "scheduler_delayed_cursor_generalization/generated_managed_while/complete" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Delayed_Cursor_General_Managed_While_Complete
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Pure_Entry in "scheduler_delayed_cursor_generalization/unlocked_transport/pure_entry" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Preservation +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Pure_Entry_Phase
+  theories
+    Scheduler_Delayed_Cursor_General_Unlocked_Pure_Entry
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Snapshot_Core in "scheduler_delayed_cursor_generalization/unlocked_transport/snapshot_core" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Pure_Entry +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Snapshot_Transport
+  theories
+    Scheduler_Delayed_Cursor_General_Unlocked_Snapshot_Core
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Snapshot_Tasks in "scheduler_delayed_cursor_generalization/unlocked_transport/snapshot_tasks" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Snapshot_Core +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Delayed_Cursor_General_Unlocked_Snapshot_Tasks
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Managed_Gate_Context in "scheduler_delayed_cursor_generalization/unlocked_transport/managed_gate_context" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Snapshot_Tasks +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Due_Step_Bridges
+    EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Managed_Gate_Capstone
+  theories
+    Scheduler_Delayed_Cursor_General_Unlocked_Managed_Gate_Context
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Managed_Gate_Pure in "scheduler_delayed_cursor_generalization/unlocked_transport/managed_gate_pure" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Managed_Gate_Context +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Delayed_Cursor_General_Unlocked_Managed_Gate_Pure
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Managed_Gate_Raw in "scheduler_delayed_cursor_generalization/unlocked_transport/managed_gate_raw" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Managed_Gate_Pure +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Delayed_Cursor_General_Unlocked_Managed_Gate_Raw
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Managed_Entry_Defs in "scheduler_delayed_cursor_generalization/unlocked_transport/managed_entry_defs" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Managed_Gate_Raw +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Pointer_Bridge
+  theories
+    Scheduler_Delayed_Cursor_General_Unlocked_Managed_Entry_Defs
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Managed_Entry_Assembler in "scheduler_delayed_cursor_generalization/unlocked_transport/managed_entry_assembler" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Managed_Entry_Defs +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Zero
+  theories
+    Scheduler_Delayed_Cursor_General_Unlocked_Managed_Entry_Assembler
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Prefix_Capstone in "scheduler_delayed_cursor_generalization/unlocked_transport/prefix_capstone" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Managed_Entry_Assembler +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Source_Exact
+  theories
+    Scheduler_Delayed_Cursor_General_Unlocked_Prefix_Capstone
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Pipeline_Capstone in "scheduler_delayed_cursor_generalization/unlocked_transport/pipeline_capstone" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Prefix_Capstone +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Managed_While_Complete
+  theories
+    Scheduler_Delayed_Cursor_General_Unlocked_Pipeline_Capstone
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Outer_Tick_Connector in "scheduler_delayed_cursor_generalization/outer_tick_connector" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Unlocked_Pipeline_Capstone +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Delayed_Cursor_General_Outer_Tick_Connector
