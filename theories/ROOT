@@ -1874,3 +1874,35 @@ session EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Capstone in "scheduler
     EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Managed_Arbitrary_While_Complete
   theories
     Scheduler_Unlocked_Tick_Prefix_Capstone
+
+session EAL6_FreeRTOS_V611_Scheduler_Outer_Tick_Final_Connector in "scheduler_outer_tick_final_connector" =
+  EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Capstone +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  theories
+    Scheduler_Outer_Tick_Final_Connector
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Invariants in "scheduler_delayed_cursor_generalization/invariants" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_While_Connector +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 300]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Scaffold
+  theories
+    Scheduler_Delayed_Cursor_General_Invariants
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Snapshots in "scheduler_delayed_cursor_generalization/snapshots" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Invariants +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 300]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Tick_Entry_Boundary
+  theories
+    Scheduler_Delayed_Cursor_General_Snapshots
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Preservation in "scheduler_delayed_cursor_generalization/preservation" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Snapshots +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 300]
+  theories
+    Scheduler_Delayed_Cursor_General_Preservation
