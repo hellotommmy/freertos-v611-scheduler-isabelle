@@ -1797,3 +1797,80 @@ session EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Managed_Arbitrary_While_Complete
     timeout = 120]
   theories
     Scheduler_Due_Prefix_Managed_Arbitrary_While_Complete
+
+session EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Pure_Entry_Phase in "scheduler_unlocked_tick_prefix/pure_entry_phase" =
+  EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Strong_While_Connector +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Scaffold
+  theories
+    Scheduler_Unlocked_Tick_Pure_Entry_Phase
+
+session EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Source_Factors in "scheduler_unlocked_tick_prefix_source/factors" =
+  EAL6_FreeRTOS_V611_Scheduler_Outer_Tick_Contract +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Unlocked_Tick_Prefix_Source_Factors
+
+session EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Role_Exact in "scheduler_unlocked_tick_prefix_source/role_exact" =
+  EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Source_Factors +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Unlocked_Tick_Prefix_Role_Exact
+
+session EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Head_Exact in "scheduler_unlocked_tick_prefix_source/head_exact" =
+  EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Role_Exact +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Unlocked_Tick_Prefix_Head_Exact
+
+session EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Source_Exact in "scheduler_unlocked_tick_prefix_source/complete" =
+  EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Head_Exact +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Unlocked_Tick_Prefix_Source_Exact
+
+session EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Managed_Entry_Assembler in "scheduler_unlocked_tick_managed_entry" =
+  EAL6_FreeRTOS_V611_Scheduler_Tick_Entry_Boundary +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Scaffold
+    EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_ML_Public_Wrapper
+    EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Managed_Arbitrary_While_Index
+  theories
+    Scheduler_Unlocked_Tick_Managed_Entry_Assembler
+
+session EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Snapshot_Transport in "scheduler_unlocked_tick_snapshot_transport" =
+  EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Pure_Entry_Phase +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Tick_Entry_Boundary
+    EAL6_FreeRTOS_V611_Scheduler_Outer_Tick_Contract
+  theories
+    Scheduler_Unlocked_Tick_Snapshot_Transport
+
+session EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Pointer_Bridge in "scheduler_unlocked_tick_pointer_bridge" =
+  EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Managed_Entry_Assembler +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Source_Exact
+  theories
+    Scheduler_Unlocked_Tick_Pointer_Bridge
+
+session EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Capstone in "scheduler_unlocked_tick_prefix_capstone" =
+  EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Snapshot_Transport +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Pointer_Bridge
+    EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Managed_Arbitrary_While_Complete
+  theories
+    Scheduler_Unlocked_Tick_Prefix_Capstone

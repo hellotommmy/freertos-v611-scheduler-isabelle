@@ -245,6 +245,15 @@
         'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Managed_Arbitrary_While_Terminal_Adapters',
         'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Managed_Arbitrary_While',
         'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Managed_Arbitrary_While_Complete',
+        'EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Pure_Entry_Phase',
+        'EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Source_Factors',
+        'EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Role_Exact',
+        'EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Head_Exact',
+        'EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Source_Exact',
+        'EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Managed_Entry_Assembler',
+        'EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Snapshot_Transport',
+        'EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Pointer_Bridge',
+        'EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Capstone',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Rel',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Remove_Decoder_Remove1',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Remove_Predecessor',
@@ -910,6 +919,33 @@ switch ($session) {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Due_Prefix_Managed_Arbitrary_While_Complete' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Pure_Entry_Phase' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Source_Factors' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Role_Exact' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Head_Exact' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Source_Exact' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Managed_Entry_Assembler' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Snapshot_Transport' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Pointer_Bridge' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Capstone' {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Family_Remove_Core' {
