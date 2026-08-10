@@ -2185,3 +2185,17 @@ session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Outer_Tick_Connector
     timeout = 180]
   theories
     Scheduler_Delayed_Cursor_General_Outer_Tick_Connector
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Boundary_Closure in "scheduler_delayed_cursor_generalization/tick_boundary_closure" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Outer_Tick_Connector +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Delayed_Cursor_General_Tick_Boundary_Closure
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Trace in "scheduler_delayed_cursor_generalization/tick_trace" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Boundary_Closure +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Delayed_Cursor_General_Tick_Trace
