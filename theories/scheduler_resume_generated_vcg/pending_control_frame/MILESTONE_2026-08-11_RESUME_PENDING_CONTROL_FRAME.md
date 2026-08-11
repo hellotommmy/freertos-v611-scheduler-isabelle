@@ -76,9 +76,11 @@ Final evidence hashes:
 
 ## Exact remaining boundary
 
-The next bridge must combine this control-frame cutpoint with the existing
-generated outer continuation and the completed safe/unsafe missed-replay
-classification, exporting the actual protected 1/1/running-1 continuation.
-After that bridge, build the parallel cursor-general managed Resume gate:
-quantify representation/count over `managed`, retain termination and protected
-external Event roots, and prove pending tasks are in `sa_live` separately.
+The next rung must build the parallel cursor-general managed Resume gate before
+any outer composition.  The existing generated outer theorem consumes the
+legacy gate on both sides and therefore cannot represent a state with retired
+tasks.  The managed gate must quantify representation/count over `managed`,
+retain termination and protected external Event roots, and prove pending tasks
+are in `sa_live` separately.  After its own body/drain and empty-exit proofs are
+green, a new managed outer composition can join the control frame and the
+completed safe/unsafe replay classification.
