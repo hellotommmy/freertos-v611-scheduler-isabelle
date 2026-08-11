@@ -582,6 +582,15 @@ session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Loop_Capstone in "managed_lo
   theories
     Scheduler_Resume_Managed_Loop_Capstone
 
+session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Replay_Split in "managed_replay_split" =
+  EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Loop_Capstone +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_First_Unsafe
+  theories
+    Scheduler_Resume_Managed_Replay_Split
+
 session EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop in "missed_loop" =
   EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Drain_Abs_Fold +
   options [document = false, quick_and_dirty = false, parallel_proofs = 0,
