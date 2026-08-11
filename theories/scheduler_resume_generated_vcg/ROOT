@@ -568,6 +568,13 @@ session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Loop_Induction in "managed_l
   theories
     Scheduler_Resume_Managed_Loop_Induction
 
+session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Loop_Pure in "managed_loop_pure" =
+  EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Loop_Induction +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Resume_Managed_Loop_Pure
+
 session EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop in "missed_loop" =
   EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Drain_Abs_Fold +
   options [document = false, quick_and_dirty = false, parallel_proofs = 0,
