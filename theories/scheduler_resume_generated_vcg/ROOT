@@ -421,6 +421,13 @@ session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Two_Unlinks in "managed_two_
   theories
     Scheduler_Resume_Managed_Two_Unlinks
 
+session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Ready_Fragment in "managed_ready_fragment" =
+  EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Two_Unlinks +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Resume_Managed_Ready_Fragment
+
 session EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop in "missed_loop" =
   EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Drain_Abs_Fold +
   options [document = false, quick_and_dirty = false, parallel_proofs = 0,
