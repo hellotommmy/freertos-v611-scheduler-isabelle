@@ -2353,3 +2353,10 @@ session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_A
     timeout = 60]
   theories
     Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_Arithmetic_Bridge
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_Safe_Loop in "scheduler_delayed_cursor_generalization/nested_tick_replay_safe_loop" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_Arithmetic_Bridge +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 60]
+  theories
+    Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_Safe_Loop
