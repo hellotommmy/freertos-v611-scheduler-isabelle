@@ -87,7 +87,7 @@ The bounded first-error chronology was:
 | `20260812Tresume-managed-after-drain-continuation-03-word-positive-simp` | 1 | 262.737 s | the exact `unat` zero bridge was still missing |
 | `20260812Tresume-managed-after-drain-continuation-04-unat-zero-bridge` | 1 | 269.447 s | the true branch had already closed before a trailing proof command |
 | `20260812Tresume-managed-after-drain-continuation-05-true-branch-close` | 1 | 273.078 s | the local branch goal still retained the outer `let` context |
-| `20260812Tresume-managed-after-drain-continuation-06-branch-let-unfold` | 1 | 332.782 s | true-branch post normalization stopped at the condition boundary |
+| `20260812Tresume-managed-after-drain-continuation-06-branch-let-unfold` | 1 | 332.782 s | normalization had already closed the goal before a trailing `by` |
 | `20260812Tresume-managed-after-drain-continuation-07-true-choice-exact` | 1 | 262.750 s | true-branch exact fact and target were in different proof modes |
 | `20260812Tresume-managed-after-drain-continuation-08-local-y-rewrite` | 1 | 260.534 s | the local-word rewrite closed before the following refinement |
 | `20260812Tresume-managed-after-drain-continuation-09-true-branch-rule` | 1 | 260.561 s | a terminal command followed an already closed branch goal |
@@ -96,9 +96,9 @@ The bounded first-error chronology was:
 | `20260812Tresume-managed-after-drain-continuation-12-true-branch-terminal-simp` | 1 | 258.248 s | terminal normalization left the exact RunsTo fact to be applied |
 | `20260812Tresume-managed-after-drain-continuation-13-true-branch-final` | 1 | 258.601 s | sequential true-branch commands again crossed a closed-goal boundary |
 | `20260812Tresume-managed-after-drain-continuation-14-true-branch-done` | 1 | 259.378 s | manual weakening left the identity implication `P \<Longrightarrow> P` |
-| `20260812Tresume-managed-after-drain-continuation-15-true-post-tautology` | 1 | 260.426 s | the tautological post was not discharged in the same refinement |
+| `20260812Tresume-managed-after-drain-continuation-15-true-post-tautology` | 1 | 260.426 s | the tautological post had already discharged before a trailing refinement |
 | `20260812Tresume-managed-after-drain-continuation-16-meta-post-assumption` | 1 | 261.018 s | proof-state sequencing still crossed the branch closure |
-| `20260812Tresume-managed-after-drain-continuation-17-true-branch-closed` | 1 | 264.559 s | a command was invoked after the local true goal had closed |
+| `20260812Tresume-managed-after-drain-continuation-17-true-branch-closed` | 1 | 264.559 s | `next` was issued while the local true goal remained in prove mode |
 | `20260812Tresume-managed-after-drain-continuation-18-close-local-show` | 1 | 264.068 s | the local structured `show` remained in the wrong mode |
 | `20260812Tresume-managed-after-drain-continuation-19-true-terminal-method` | 1 | 262.526 s | terminal true-branch normalization and fact use were still split |
 | `20260812Tresume-managed-after-drain-continuation-20-true-fact-match` | 1 | 260.866 s | the fact match closed before a following terminal command |
