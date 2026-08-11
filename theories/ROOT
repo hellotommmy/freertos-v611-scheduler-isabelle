@@ -2339,3 +2339,17 @@ session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Missed_B
     EAL6_FreeRTOS_V611_Scheduler_Resume_Missed_Tick_Replay_Frame
   theories
     Scheduler_Delayed_Cursor_General_Nested_Tick_Missed_Body_Capstone
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_Horizon_Abs in "scheduler_delayed_cursor_generalization/nested_tick_replay_horizon_abs" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Missed_Body_Capstone +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 60]
+  theories
+    Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_Horizon_Abs
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_Arithmetic_Bridge in "scheduler_delayed_cursor_generalization/nested_tick_replay_arithmetic_bridge" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_Horizon_Abs +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 60]
+  theories
+    Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_Arithmetic_Bridge
