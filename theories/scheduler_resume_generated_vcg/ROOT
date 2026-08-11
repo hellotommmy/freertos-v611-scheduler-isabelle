@@ -365,6 +365,13 @@ session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Phase_Adapter_Pure_Entry in 
   theories
     Scheduler_Resume_Managed_Phase_Adapter_Pure_Entry
 
+session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Phase_Adapter_Capstone in "managed_phase_adapter_capstone" =
+  EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Phase_Adapter_Pure_Entry +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 60]
+  theories
+    Scheduler_Resume_Managed_Phase_Adapter_Capstone
+
 session EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop in "missed_loop" =
   EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Drain_Abs_Fold +
   options [document = false, quick_and_dirty = false, parallel_proofs = 0,
