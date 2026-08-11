@@ -2374,3 +2374,10 @@ session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_B
     timeout = 60]
   theories
     Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_Body_Outcomes
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_First_Unsafe in "scheduler_delayed_cursor_generalization/nested_tick_replay_first_unsafe" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_Body_Outcomes +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 60]
+  theories
+    Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_First_Unsafe
