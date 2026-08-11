@@ -18,9 +18,9 @@ definition scheduler_port_overlay ::
    Scheduler_V611_Parse.globals \<Rightarrow>
    Scheduler_V611_Parse.globals"
 where
-  "scheduler_port_overlay depth mask c =
+  "scheduler_port_overlay depth irq_mask c =
      Scheduler_V611_Parse.globals.eal6_port_interrupts_disabled_'_update
-       (\<lambda>_. mask)
+       (\<lambda>_. irq_mask)
        (Scheduler_V611_Parse.globals.eal6_port_critical_depth_'_update
          (\<lambda>_. depth) c)"
 
@@ -29,75 +29,75 @@ definition scheduler_port_overlay_rel ::
    Scheduler_V611_Parse.globals \<Rightarrow>
    Scheduler_V611_Parse.globals \<Rightarrow> bool"
 where
-  "scheduler_port_overlay_rel depth mask c c0 \<longleftrightarrow>
-     c = scheduler_port_overlay depth mask c0"
+  "scheduler_port_overlay_rel depth irq_mask c c0 \<longleftrightarrow>
+     c = scheduler_port_overlay depth irq_mask c0"
 
 lemma scheduler_port_overlay_relI:
-  "c = scheduler_port_overlay depth mask c0 \<Longrightarrow>
-   scheduler_port_overlay_rel depth mask c c0"
+  "c = scheduler_port_overlay depth irq_mask c0 \<Longrightarrow>
+   scheduler_port_overlay_rel depth irq_mask c c0"
   by (simp add: scheduler_port_overlay_rel_def)
 
 lemma scheduler_port_overlay_relD:
-  "scheduler_port_overlay_rel depth mask c c0 \<Longrightarrow>
-   c = scheduler_port_overlay depth mask c0"
+  "scheduler_port_overlay_rel depth irq_mask c c0 \<Longrightarrow>
+   c = scheduler_port_overlay depth irq_mask c0"
   by (simp add: scheduler_port_overlay_rel_def)
 
 lemma scheduler_port_overlay_selectors [simp]:
   "Scheduler_V611_Parse.globals.eal6_port_critical_depth_'
-      (scheduler_port_overlay depth mask c) = depth"
+      (scheduler_port_overlay depth irq_mask c) = depth"
   "Scheduler_V611_Parse.globals.eal6_port_interrupts_disabled_'
-      (scheduler_port_overlay depth mask c) = mask"
+      (scheduler_port_overlay depth irq_mask c) = irq_mask"
   "Scheduler_V611_Parse.globals.t_hrs_'
-      (scheduler_port_overlay depth mask c) =
+      (scheduler_port_overlay depth irq_mask c) =
     Scheduler_V611_Parse.globals.t_hrs_' c"
   "Scheduler_V611_Parse.globals.pxCurrentTCB_'
-      (scheduler_port_overlay depth mask c) =
+      (scheduler_port_overlay depth irq_mask c) =
     Scheduler_V611_Parse.globals.pxCurrentTCB_' c"
   "Scheduler_V611_Parse.globals.pxDelayedTaskList_'
-      (scheduler_port_overlay depth mask c) =
+      (scheduler_port_overlay depth irq_mask c) =
     Scheduler_V611_Parse.globals.pxDelayedTaskList_' c"
   "Scheduler_V611_Parse.globals.pxOverflowDelayedTaskList_'
-      (scheduler_port_overlay depth mask c) =
+      (scheduler_port_overlay depth irq_mask c) =
     Scheduler_V611_Parse.globals.pxOverflowDelayedTaskList_' c"
   "Scheduler_V611_Parse.globals.xTickCount_'
-      (scheduler_port_overlay depth mask c) =
+      (scheduler_port_overlay depth irq_mask c) =
     Scheduler_V611_Parse.globals.xTickCount_' c"
   "Scheduler_V611_Parse.globals.uxSchedulerSuspended_'
-      (scheduler_port_overlay depth mask c) =
+      (scheduler_port_overlay depth irq_mask c) =
     Scheduler_V611_Parse.globals.uxSchedulerSuspended_' c"
   "Scheduler_V611_Parse.globals.uxMissedTicks_'
-      (scheduler_port_overlay depth mask c) =
+      (scheduler_port_overlay depth irq_mask c) =
     Scheduler_V611_Parse.globals.uxMissedTicks_' c"
   "Scheduler_V611_Parse.globals.xNumOfOverflows_'
-      (scheduler_port_overlay depth mask c) =
+      (scheduler_port_overlay depth irq_mask c) =
     Scheduler_V611_Parse.globals.xNumOfOverflows_' c"
   "Scheduler_V611_Parse.globals.xSchedulerRunning_'
-      (scheduler_port_overlay depth mask c) =
+      (scheduler_port_overlay depth irq_mask c) =
     Scheduler_V611_Parse.globals.xSchedulerRunning_' c"
   by (simp_all add: scheduler_port_overlay_def)
 
 lemma scheduler_port_overlay_idempotent [simp]:
-  "scheduler_port_overlay depth mask
-      (scheduler_port_overlay depth' mask' c) =
-    scheduler_port_overlay depth mask c"
+  "scheduler_port_overlay depth irq_mask
+      (scheduler_port_overlay depth' irq_mask' c) =
+    scheduler_port_overlay depth irq_mask c"
   by (simp add: scheduler_port_overlay_def)
 
 lemma scheduler_port_overlay_missed_tick_update:
-  "scheduler_port_overlay depth mask
+  "scheduler_port_overlay depth irq_mask
       (Scheduler_V611_Parse.globals.uxMissedTicks_'_update f c) =
     Scheduler_V611_Parse.globals.uxMissedTicks_'_update f
-      (scheduler_port_overlay depth mask c)"
+      (scheduler_port_overlay depth irq_mask c)"
   by (simp add: scheduler_port_overlay_def)
 
 lemma generated_unlocked_tick_arithmetic_defined_port_overlay [simp]:
   "generated_unlocked_tick_arithmetic_defined
-      (scheduler_port_overlay depth mask c) =
+      (scheduler_port_overlay depth irq_mask c) =
     generated_unlocked_tick_arithmetic_defined c"
   by (simp add: generated_unlocked_tick_arithmetic_defined_def)
 
 lemma classify_generated_tick_arithmetic_port_overlay [simp]:
   "classify_generated_tick_arithmetic
-      (scheduler_port_overlay depth mask c) =
+      (scheduler_port_overlay depth irq_mask c) =
     classify_generated_tick_arithmetic c"
   by (simp add: classify_generated_tick_arithmetic_def
       tick_overflow_increment_defined_def)
@@ -110,18 +110,18 @@ definition CursorGeneralStrongVTaskIncrementTickProtectedEntryRel ::
    'tid set \<Rightarrow> 'tid node_ring \<Rightarrow> xLIST_C ptr set \<Rightarrow> bool"
 where
   "CursorGeneralStrongVTaskIncrementTickProtectedEntryRel
-       D depth mask c a managed termination external \<longleftrightarrow>
+       D depth irq_mask c a managed termination external \<longleftrightarrow>
      (\<exists>c0.
-        c = scheduler_port_overlay depth mask c0 \<and>
+        c = scheduler_port_overlay depth irq_mask c0 \<and>
         CursorGeneralStrongVTaskIncrementTickPublicEntryRel
           D c0 a managed termination external)"
 
 lemma CursorGeneralStrongVTaskIncrementTickProtectedEntryRelD:
   assumes entry:
     "CursorGeneralStrongVTaskIncrementTickProtectedEntryRel
-       D depth mask c a managed termination external"
+       D depth irq_mask c a managed termination external"
   obtains c0 where
-    "c = scheduler_port_overlay depth mask c0"
+    "c = scheduler_port_overlay depth irq_mask c0"
     "CursorGeneralStrongVTaskIncrementTickPublicEntryRel
        D c0 a managed termination external"
   using entry
@@ -130,10 +130,10 @@ lemma CursorGeneralStrongVTaskIncrementTickProtectedEntryRelD:
 lemma CursorGeneralStrongVTaskIncrementTickProtectedEntryRel_portD:
   assumes entry:
     "CursorGeneralStrongVTaskIncrementTickProtectedEntryRel
-       D depth mask c a managed termination external"
+       D depth irq_mask c a managed termination external"
   shows
     "Scheduler_V611_Parse.globals.eal6_port_critical_depth_' c = depth \<and>
-     Scheduler_V611_Parse.globals.eal6_port_interrupts_disabled_' c = mask"
+     Scheduler_V611_Parse.globals.eal6_port_interrupts_disabled_' c = irq_mask"
   using entry
   by (auto simp: CursorGeneralStrongVTaskIncrementTickProtectedEntryRel_def)
 
@@ -142,8 +142,8 @@ section \<open>Relational transfer\<close>
 definition scheduler_port_overlay_tick_bisim ::
   "32 word \<Rightarrow> 32 word \<Rightarrow> bool"
 where
-  "scheduler_port_overlay_tick_bisim depth mask \<longleftrightarrow>
-     rel_spec_monad (scheduler_port_overlay_rel depth mask) (=)
+  "scheduler_port_overlay_tick_bisim depth irq_mask \<longleftrightarrow>
+     rel_spec_monad (scheduler_port_overlay_rel depth irq_mask) (=)
        Scheduler_V611_Delay_Translation.vTaskIncrementTick'
        Scheduler_V611_Delay_Translation.vTaskIncrementTick'"
 
@@ -157,24 +157,24 @@ lemma scheduler_port_overlay_rel_runs_to_transfer:
   fixes p ::
     "('e::default, 'a, Scheduler_V611_Parse.globals) spec_monad"
   assumes bisim:
-    "rel_spec_monad (scheduler_port_overlay_rel depth mask) (=) p p"
+    "rel_spec_monad (scheduler_port_overlay_rel depth irq_mask) (=) p p"
     and shadow: "p \<bullet> c0 \<lbrace>Q\<rbrace>"
   shows
-    "p \<bullet> scheduler_port_overlay depth mask c0
-       \<lbrace>\<lambda>r t. \<exists>t0.
-          t = scheduler_port_overlay depth mask t0 \<and> Q r t0\<rbrace>"
+    "p \<bullet> (scheduler_port_overlay depth irq_mask c0)
+       \<lbrace>(\<lambda>r t. \<exists>t0.
+          t = scheduler_port_overlay depth irq_mask t0 \<and> Q r t0)\<rbrace>"
 proof -
   have state_rel:
-    "scheduler_port_overlay_rel depth mask
-       (scheduler_port_overlay depth mask c0) c0"
+    "scheduler_port_overlay_rel depth irq_mask
+       (scheduler_port_overlay depth irq_mask c0) c0"
     by (simp add: scheduler_port_overlay_rel_def)
   have related:
-    "rel_spec p p (scheduler_port_overlay depth mask c0) c0
-       (rel_prod (=) (scheduler_port_overlay_rel depth mask))"
+    "rel_spec p p (scheduler_port_overlay depth irq_mask c0) c0
+       (rel_prod (=) (scheduler_port_overlay_rel depth irq_mask))"
     by (rule rel_spec_monadD[OF bisim state_rel])
   have refined:
-    "refines p p (scheduler_port_overlay depth mask c0) c0
-       (rel_prod (=) (scheduler_port_overlay_rel depth mask))"
+    "refines p p (scheduler_port_overlay depth irq_mask c0) c0
+       (rel_prod (=) (scheduler_port_overlay_rel depth irq_mask))"
     by (rule rel_specD_refines1[OF related])
   note run = refinesD_runs_to[OF refined shadow]
   show ?thesis
@@ -184,10 +184,10 @@ qed
 
 theorem
   CursorGeneralStrongVTaskIncrementTickProtectedEntryRel_sequential_branch_complete:
-  assumes bisim: "scheduler_port_overlay_tick_bisim depth mask"
+  assumes bisim: "scheduler_port_overlay_tick_bisim depth irq_mask"
     and entry:
       "CursorGeneralStrongVTaskIncrementTickProtectedEntryRel
-         D depth mask c a managed termination external"
+         D depth irq_mask c a managed termination external"
     and unlocked_defined:
       "sa_suspend_depth a = 0 \<Longrightarrow>
        generated_unlocked_tick_arithmetic_defined c"
@@ -196,11 +196,11 @@ theorem
       \<lbrace>\<lambda>r t.
         r = Result () \<and>
         CursorGeneralStrongVTaskIncrementTickProtectedEntryRel
-          D depth mask t (task_increment_tick_modular_abs a)
+          D depth irq_mask t (task_increment_tick_modular_abs a)
           managed termination external\<rbrace>"
 proof -
   obtain c0 where c:
-      "c = scheduler_port_overlay depth mask c0"
+      "c = scheduler_port_overlay depth irq_mask c0"
     and shadow_entry:
       "CursorGeneralStrongVTaskIncrementTickPublicEntryRel
          D c0 a managed termination external"
@@ -243,15 +243,15 @@ proof -
   qed
   have transferred:
     "Scheduler_V611_Delay_Translation.vTaskIncrementTick' \<bullet>
-       scheduler_port_overlay depth mask c0
-      \<lbrace>\<lambda>r t. \<exists>t0.
-        t = scheduler_port_overlay depth mask t0 \<and>
+       (scheduler_port_overlay depth irq_mask c0)
+      \<lbrace>(\<lambda>r t. \<exists>t0.
+        t = scheduler_port_overlay depth irq_mask t0 \<and>
         (r = Result () \<and>
          CursorGeneralStrongVTaskIncrementTickPublicEntryRel D t0
-           (task_increment_tick_modular_abs a) managed termination external)\<rbrace>"
+           (task_increment_tick_modular_abs a) managed termination external))\<rbrace>"
   proof -
     have bisim_rel:
-      "rel_spec_monad (scheduler_port_overlay_rel depth mask) (=)
+      "rel_spec_monad (scheduler_port_overlay_rel depth irq_mask) (=)
         Scheduler_V611_Delay_Translation.vTaskIncrementTick'
         Scheduler_V611_Delay_Translation.vTaskIncrementTick'"
       using bisim
@@ -263,7 +263,7 @@ proof -
   have transferred_c:
     "Scheduler_V611_Delay_Translation.vTaskIncrementTick' \<bullet> c
       \<lbrace>\<lambda>r t. \<exists>t0.
-        t = scheduler_port_overlay depth mask t0 \<and>
+        t = scheduler_port_overlay depth irq_mask t0 \<and>
         (r = Result () \<and>
          CursorGeneralStrongVTaskIncrementTickPublicEntryRel D t0
            (task_increment_tick_modular_abs a) managed termination external)\<rbrace>"
