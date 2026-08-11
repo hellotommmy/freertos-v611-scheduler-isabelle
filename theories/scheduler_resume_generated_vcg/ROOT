@@ -314,6 +314,13 @@ session EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Drain_Abs_Fold in "drain_a
   theories
     Scheduler_Resume_Generated_Drain_Abs_Fold
 
+session EAL6_FreeRTOS_V611_Scheduler_Resume_Pending_Control_Frame in "pending_control_frame" =
+  EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Drain_Abs_Fold +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 60]
+  theories
+    Scheduler_Resume_Pending_Control_Frame
+
 session EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop in "missed_loop" =
   EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Drain_Abs_Fold +
   options [document = false, quick_and_dirty = false, parallel_proofs = 0,
