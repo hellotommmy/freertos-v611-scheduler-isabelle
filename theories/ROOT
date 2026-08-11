@@ -2315,3 +2315,10 @@ session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Overlay 
     EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Boundary_Closure
   theories
     Scheduler_Delayed_Cursor_General_Nested_Tick_Overlay
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Overlay_Capstone in "scheduler_delayed_cursor_generalization/nested_tick_overlay_capstone" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Overlay +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 60]
+  theories
+    Scheduler_Delayed_Cursor_General_Nested_Tick_Overlay_Capstone
