@@ -2220,3 +2220,10 @@ session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_VL
     timeout = 60]
   theories
     Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_VList_Remove
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_VList_Insert_End in "scheduler_delayed_cursor_generalization/nested_tick_transport/vlist_insert_end" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_VList_Remove +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 60]
+  theories
+    Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_VList_Insert_End
