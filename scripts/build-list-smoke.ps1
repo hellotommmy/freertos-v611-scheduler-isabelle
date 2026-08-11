@@ -171,6 +171,7 @@
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Ready_Fragment',
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Ready_Insert_Relational',
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Yield_Fragment',
+        'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Yield_Relational',
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop',
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Outer_Compose',
         'EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_After_Event',
@@ -785,6 +786,9 @@ switch ($session) {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Yield_Fragment' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Yield_Relational' {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop' {
