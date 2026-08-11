@@ -2264,3 +2264,10 @@ session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_Lo
     timeout = 60]
   theories
     Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_Loop_Body
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_While_Factor in "scheduler_delayed_cursor_generalization/nested_tick_transport/while_factor" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_Loop_Body +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 60]
+  theories
+    Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_While_Factor
