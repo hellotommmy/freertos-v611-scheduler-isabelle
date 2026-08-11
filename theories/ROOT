@@ -2278,3 +2278,10 @@ session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_Fi
     timeout = 60]
   theories
     Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_Finally_Factor
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_Role_Source in "scheduler_delayed_cursor_generalization/nested_tick_transport/role_source" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_Finally_Factor +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 60]
+  theories
+    Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_Role_Source
