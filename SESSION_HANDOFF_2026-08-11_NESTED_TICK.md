@@ -1,5 +1,8 @@
 # Session handoff: cursor-general nested tick and Resume replay
 
+> **Superseded:** use `SESSION_HANDOFF_2026-08-11_REPLAY_SAFE_LOOP.md` for the
+> current checker frontier. This file is retained as a historical baseline.
+
 Date: 2026-08-11
 Branch: `agent/universal-scheduler-refinement`
 Baseline HEAD at handoff preparation: `1663ad05ad4c9cd18d5c9685d366b3e5e622d5aa`

@@ -85,7 +85,7 @@
   \vfill
   \begin{tabular}{rl}
     报告日期：& 2026-08-11\\
-    基线提交：& \code{1663ad0}\\
+    本版基线：& \code{476e950}；safe-loop leaf 已提交并推送\\
     分支：& \code{agent/universal-scheduler-refinement}\\
     公开审阅：& \url{https://github.com/hellotommmy/freertos-v611-scheduler-isabelle/pull/2}\\
     核验准则：& Isabelle2025-2，\code{quick_and_dirty=false}，无承认性证明\\
@@ -223,7 +223,7 @@ E & scope、工具链、QAD、排除项纪律 & 13/13 边界遵守 & 它是可�
 \section{当前最关键的 checker-green 结果}
 
 以下每项均指结果类别；只有仓库中实际存在且有绿色 session 证据的内容才标为
-\checked。未注册的 nested-tick probes 不在本页。
+\checked。早期 nested-tick probes 已晋升为正式的 checker-green staircase。
 
 \begin{enumerate}
   \item \textbf{通用 xLIST 与 raw/abstract 对齐。}任意合法 ring、节点、cursor、key 和
@@ -254,13 +254,19 @@ E & scope、工具链、QAD、排除项纪律 & 13/13 边界遵守 & 它是可�
         \end{center}
         该 relation 对调用方隐藏内部 witness 参数，并证明成功 tick
         重新建立同一 settled/unmasked public boundary。\checked
+  \item \textbf{nested-critical tick transport。}generated tick 对只改 proof-port
+        depth/mask 的函数 overlay 无条件 self-bisimilar；因此 Resume 内真实 $1/1$ cutpoint
+        可从 normalized $0/0$ public shadow 运输，而无需伪造 public boundary。\checked
+  \item \textbf{horizon-safe missed replay。}单次 body 严格按 tick 后 debt decrement；递归
+        horizon 与 concrete signed-word guard 精确对应，且 whole replay while 在 protected
+        entry、quiet 与 full horizon 三项前提下完成并归零 debt。\checked
   \item \textbf{任意有限 repeated tick trace。}
         \code{cursor_general_vTaskIncrementTick_finite_trace} 对任意 $n$、任意满足稳定性和逐步
         arithmetic-enabled 的调用者关系，给出 $n$ 次
         \code{task_increment_tick_modular_abs} 的精确迭代态。\checked
 \end{enumerate}
 
-\clearpage
+\medskip
 
 % --------------------------------------------------------------------------
 % Page 5: root coverage
@@ -307,7 +313,8 @@ Run & Exit/QAD & 总耗时 & 支撑结论\\
 \end{tabularx}
 }
 
-\noindent\repoev\quad Git 基线为 \code{1663ad0}，准备报告时与 upstream 为 0 ahead / 0 behind。
+\noindent\repoev\quad 本版 Git 基线为 \code{476e950}，与 upstream 为 0 ahead / 0 behind；
+safe-loop leaf 已由单一 checker lane 以 QAD=false 通过、提交并推送。
 
 \clearpage
 
@@ -360,10 +367,12 @@ Run & Exit/QAD & 总耗时 & 支撑结论\\
 overlay。仅有 modifies/frame theorem 不够，因为“不写这两个字段”并不推出“从不读取或据此分支”。
 \audit
 
-\claimbox{red}{
-\textbf{当前状态：}两份 unregistered/unbuilt static probe 已把问题缩小到
-\code{one_due_tick_unlocked_source} 的 overlay bisimulation；它们不是 checker-green 结果，
-不计入完成率。下一 session 应先检查较小的 209 行 rel-spec probe，并最终合并 vocabulary。
+\claimbox{green}{
+\textbf{本版增量：}两字段 overlay algebra、generated unlocked tick 的整条 self-bisimulation、
+protected $1/1$ transport、单次 missed-replay body（先 tick、后 debt decrement）、递归 replay
+horizon、signed-word arithmetic bridge，以及 horizon-safe 的完整 generated replay while 均已由
+\code{quick_and_dirty=false} 的独立 child sessions 检查通过。overlay mismatch 已不再是开放 gate；
+当前首个语义缺口是 horizon 不安全时的 first-unsafe no-success 分类。
 }
 
 \clearpage
@@ -378,9 +387,7 @@ overlay。仅有 modifies/frame theorem 不够，因为“不写这两个字段�
 开放 gate & 最小反例/原因 & Acceptance criterion\\
 \midrule
 \endhead
-Nested/public mismatch & replay 位于 depth/mask $=1/1$；public relation 固定 $0/0$ & generated tick 的 overlay self-bisimulation 与 exact port frame checker-green\\
-\addlinespace
-Replay arithmetic horizon & tick=\code{0xFFFFFFFE}、overflow=\code{INT_MAX}、debt=2；第一步成功，第二步 wrap guard failure & 对每个剩余 replay index 的 safety invariant，以及首个 unsafe step 的 no-success theorem\\
+Replay first-unsafe classification & tick=\code{0xFFFFFFFE}、overflow=\code{INT_MAX}、debt=2；第一步成功，第二步 wrap guard failure & 已绿 horizon-safe 成功 while 的补集：定位首个 unsafe index，并证明 whole replay loop 无 successful run\\
 \addlinespace
 Pending port frame & 现有 pending body exact state保留端口值，但 loop/outer continuation 弱化后丢失 & 任意 pending 长度后仍精确保留 running/depth/mask，并传给 missed-loop continuation\\
 \addlinespace
@@ -416,11 +423,11 @@ Generated concurrency & 旧 pure concurrent EnvTick 使用 nat Suc，且没有 g
 \toprule
 序 & 小 session / rung & Acceptance criterion & 首错 fallback\\
 \midrule
-1 & Overlay algebra & selector、graph relation、run-image iff、combinator closure 全绿 & 只注册 209 行 probe；按 command 二分，不增大 timeout\\
-2 & Unlocked self-bisim & list remove/insert、due while、terminal/future 对 overlay commute & 先分别证明 callees；必要时为 while 建独立 child\\
-3 & Protected tick & 实际 depth/mask 原样保留，抽象后态为 modular tick，protected entry 重建 & 用 rel-spec refinement 的定向 runs-to 迁移\\
-4 & Missed body & 正 debt、unlocked、tick 后 decrement，exact \code{resume_missed_source_step_abs} & 分离 word predecessor 与 snapshot frame，小 theorem 先绿\\
-5 & Missed loop & horizon-safe 成功 replay + first-unsafe no-success；steps 等同 replay abstraction & 对 debt 归纳；首个 bad index 作最小 witness\\
+1 & \checked\ Overlay/whole tick & graph、run-image、combinator、list callees、while/finally 与整条 source self-bisim 全绿 & 已完成；不得回退为 modifies-only 论证\\
+2 & \checked\ Protected tick & 实际 depth/mask 原样保留；$1/1$ nested state 由 normalized public shadow 运输 & 已完成；不要把内部 cutpoint 改写成 public $0/0$\\
+3 & \checked\ Missed body & 正 debt 下严格按源码 tick 后 decrement，得到 exact \code{resume_missed_source_step_abs} & 已完成；word predecessor 与 snapshot frame 均独立核验\\
+4 & \checked\ Safe replay while & 递归 horizon、signed-word bridge、steps/replay 命名桥与完整成功循环全绿 & 已完成；主 theorem 仅 entry、quiet、full horizon 三项前提\\
+5 & First-unsafe replay & 对 horizon 补集给出首个 bad index 与 whole-loop no-success & 先补 always-progress/reaches 存在性，再作 first-bad induction\\
 6 & Pending port frame & 任意 pending drain 后仍为真实 $1/1$，continuation获得 frame & 用 exact body state + list induction；不重跑大 VCG\\
 7 & Managed Resume gate & retired、termination、external roots 与 cursors 保留；pending 任务仍属于 live & 先做纯 family/domain bridge，再接 generated body\\
 8 & Outer Resume closure & replay、final modular yield、exit critical，all-branch public post或明确 no-success & 分支逐个闭合；禁止把 undefined arithmetic 塞入成功前提\\
@@ -501,39 +508,46 @@ Isabelle2025-2 下以 \code{quick_and_dirty=false} 完成；未注册草稿、�
 % --------------------------------------------------------------------------
 \section{证据附录与交接摘要}
 
+\small
+
 \subsection{版本与 run 证据}
 
 \noindent\begin{tabularx}{\textwidth}{p{38mm}Y}
 \toprule
 项目 & 值\\
 \midrule
-Baseline HEAD & \code{1663ad05ad4c9cd18d5c9685d366b3e5e622d5aa}\\
-Upstream sync & ahead 0 / behind 0（报告准备开始时）\\
+Baseline HEAD & \code{476e950263a75f6d64542453c2b3bb6b31fecb7a}\\
+Upstream sync & ahead 0 / behind 0（safe-loop 提交后）\\
 Boundary run & \code{20260811Tcursor-general-tick-boundary-02}, exit 0, QAD false\\
 Trace run & \code{20260811Tcursor-general-tick-trace-08}, exit 0, QAD false\\
-Tracked scale（非完成率） & 371 tracked \code{.thy}；311 ROOT sessions；41 cursor-general sessions\\
+Nested overlay capstone & \code{20260811Tnested-tick-overlay-capstone-01-cold}, exit 0, QAD false\\
+One replay body & \code{20260811Tnested-tick-missed-body-capstone-02-explicit-tail}, exit 0, QAD false\\
+Replay horizon/bridge & \code{20260811Tnested-tick-replay-horizon-abs-03-signed-word} / \code{20260811Tnested-tick-replay-arithmetic-bridge-11-signed-word}, exit 0, QAD false\\
+Safe replay while & \code{20260811Tnested-tick-replay-safe-loop-01-cold}, exit 0, QAD false, 147.663 s\\
+Tracked scale（非完成率） & 393 tracked \code{.thy}；333 ROOT sessions；63 cursor-general sessions\\
 Public PR & \url{https://github.com/hellotommmy/freertos-v611-scheduler-isabelle/pull/2}\\
 \bottomrule
 \end{tabularx}
 
 \subsection{下一 session 必读摘要}
 
-目前最强结果是 cursor-general、managed-domain 的 generated tick 单根公共边界闭包与任意有限
-重复调用。下一关键接缝是 \code{xTaskResumeAll} 内 missed-tick replay：真实源码在 proof-port
-critical depth/mask 为 $1/1$ 时调用 tick，而已绿 public relation 只接受 $0/0$。下一 session
-应从未注册的 209 行 rel-spec overlay probe 开始，先机器化两字段 functional overlay 与
-generated unlocked tick 的 self-bisimulation，再做一轮 body 的“tick 后 debt--”、replay-horizon
-arithmetic safety及首个 unsafe step 的 no-success。随后强化 pending loop 保留 $1/1$，把 Resume
-gate 从 live-domain 扩展到 managed/termination/external roots，并以 modular yield relation闭合
-outer exit。不能把内部 cutpoint 伪装成 public boundary，不能以 no-wrap、cursor=None 或
-managed=live 排除合法状态。当前没有 universal Resume、mixed five-root trace 或 generated
-concurrency theorem。
+目前最强增量已经越过 nested/public mismatch：generated tick 对 proof-port overlay 的无前提
+self-bisimulation已绿，因此真实 $1/1$ replay cutpoint 可以复用 normalized $0/0$ shadow；单次
+body、全债务 horizon、signed-word arithmetic bridge 与 horizon-safe 完整 replay while 也已绿。
+下一 session 不得从旧 probe 重来，而应先证明 horizon 补集的 first-unsafe no-success：由于
+\code{runs_to} 本身不保证存在可达 successor，须先给 replay body 建立
+\code{always_progress}/\code{reaches} 支点，再按首个 bad index 归纳。随后强化 pending drain
+保留真实 $1/1$ 与 running frame，另建 cursor-general managed Resume gate（pending task 仍属于
+live，而 decoder/family/count 覆盖 managed 与 termination），最后以 modular yield relation
+闭合 outer exit。不能以 no-wrap、cursor=None 或 managed=live 排除合法状态。当前仍没有
+universal Resume、mixed five-root trace 或 generated concurrency theorem。
 
 \subsection{报告生成与审阅说明}
 
 本报告由本地仓库、绿色 run status、当前 theorem statements 与 source-order audit 汇总；
-外部 Pro 复核了完成率分母、claim language、开放反例和下一 session staircase。其建议的
-20-gate 台账给出 $9/20=45\%$，同时指出 A1--A8 尚未逐项命名，且
+外部 Pro 复核了完成率分母、claim language、开放反例和八级 continuation staircase。该路线的
+overlay、protected tick、单次 body 与 safe replay 成功分支现已由本地 checker 落地；Pro 建议的
+20-gate 台账仍为 $9/20=45\%$，因为尚未跨过新的顶层五根 acceptance gate。其同时指出 A1--A8 尚未逐项命名，且
 \code{xTaskGetTickCount} 当前 relation 尚无 full scheduler framing。因此本报告把 45\% 限定为
 暂定工程台账，并把严格 common-boundary closure 仍报为 35--40\%。最终文本只采纳与仓库及
 checker evidence 相容的建议。\repoev

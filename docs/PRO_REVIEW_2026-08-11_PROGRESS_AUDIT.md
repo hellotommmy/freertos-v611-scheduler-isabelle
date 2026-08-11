@@ -79,3 +79,25 @@ Unsafe wording:
 Each rung should have its own child session, `quick_and_dirty=false`, one
 Isabelle lane, and a measured bounded timeout. On timeout, bisect the first
 unfinished command instead of increasing the whole scheduler timeout.
+
+## Local checker delta after the review
+
+The external review supplied a route, not proof evidence. The local Isabelle
+checker has since discharged the success-side part of rungs 1--5:
+
+- the two-field overlay algebra and whole generated tick self-bisimulation;
+- protected transport from the normalized public shadow to arbitrary concrete
+  proof-port depth/mask, including the Resume `1/1` instance;
+- one missed-replay body in exact source order (`tick`; then debt decrement);
+- a recursive remaining-debt arithmetic horizon and its exact bridge to the
+  concrete signed overflow guard; and
+- the complete horizon-safe generated replay while, with exactly protected
+  entry, quiet scheduler, and full horizon as public premises.
+
+The last item was checked by
+`20260811Tnested-tick-replay-safe-loop-01-cold` with exit 0,
+`quick_and_dirty=false`, and no timeout. This delta does **not** raise the
+20-gate count: first-unsafe no-success, pending-loop control frames, the managed
+Resume gate, modular yield, whole `xTaskResumeAll`, mixed five-root traces, and
+generated concurrency remain open. Local kernel evidence continues to override
+this advisory review wherever they differ.
