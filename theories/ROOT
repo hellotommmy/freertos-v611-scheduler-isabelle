@@ -2360,3 +2360,10 @@ session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_S
     timeout = 60]
   theories
     Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_Safe_Loop
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_Progress in "scheduler_delayed_cursor_generalization/nested_tick_replay_progress" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_Safe_Loop +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 60]
+  theories
+    Scheduler_Delayed_Cursor_General_Nested_Tick_Replay_Progress
