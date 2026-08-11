@@ -612,6 +612,13 @@ session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Modular_Yield in "managed_mo
   theories
     Scheduler_Resume_Managed_Modular_Yield
 
+session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Modular_Exit in "managed_modular_exit" =
+  EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Modular_Yield +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Resume_Managed_Modular_Exit
+
 session EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop in "missed_loop" =
   EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Drain_Abs_Fold +
   options [document = false, quick_and_dirty = false, parallel_proofs = 0,
