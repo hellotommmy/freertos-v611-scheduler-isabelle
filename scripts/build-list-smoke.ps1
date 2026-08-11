@@ -156,6 +156,7 @@
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Pending_Control_Frame',
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Gate_Base',
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Phase_Adapter_Base',
+        'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Phase_Adapter_Context',
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop',
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Outer_Compose',
         'EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_After_Event',
@@ -725,6 +726,9 @@ switch ($session) {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Phase_Adapter_Base' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Phase_Adapter_Context' {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop' {
