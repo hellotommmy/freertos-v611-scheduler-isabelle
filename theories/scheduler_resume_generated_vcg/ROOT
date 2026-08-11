@@ -428,6 +428,13 @@ session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Ready_Fragment in "managed_r
   theories
     Scheduler_Resume_Managed_Ready_Fragment
 
+session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Ready_Insert_Relational in "managed_ready_insert_relational" =
+  EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Ready_Fragment +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Resume_Managed_Ready_Insert_Relational
+
 session EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop in "missed_loop" =
   EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Drain_Abs_Fold +
   options [document = false, quick_and_dirty = false, parallel_proofs = 0,
