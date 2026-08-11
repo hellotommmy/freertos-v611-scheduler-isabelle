@@ -591,6 +591,13 @@ session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Replay_Split in "managed_rep
   theories
     Scheduler_Resume_Managed_Replay_Split
 
+session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Modular_Endpoint in "managed_modular_endpoint" =
+  EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Replay_Split +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Resume_Managed_Modular_Endpoint
+
 session EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop in "missed_loop" =
   EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Drain_Abs_Fold +
   options [document = false, quick_and_dirty = false, parallel_proofs = 0,
