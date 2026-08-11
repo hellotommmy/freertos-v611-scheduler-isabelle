@@ -477,6 +477,13 @@ session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Body in "managed_body" =
   theories
     Scheduler_Resume_Managed_Body
 
+session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Reentry_Core in "managed_reentry_core" =
+  EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Body +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Resume_Managed_Reentry_Core
+
 session EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop in "missed_loop" =
   EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Drain_Abs_Fold +
   options [document = false, quick_and_dirty = false, parallel_proofs = 0,
