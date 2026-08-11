@@ -2199,3 +2199,10 @@ session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Trace in "sched
     timeout = 120]
   theories
     Scheduler_Delayed_Cursor_General_Tick_Trace
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Rel_Spec_Probe in "scheduler_delayed_cursor_generalization/nested_tick_transport/rel_spec_probe" =
+  EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_Generated +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 60]
+  theories
+    Scheduler_Delayed_Cursor_General_Tick_Rel_Spec_Probe
