@@ -463,6 +463,13 @@ session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Loop_Head_Commit in "managed
   theories
     Scheduler_Resume_Managed_Loop_Head_Commit
 
+session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Head_TCB_Guard in "managed_head_tcb_guard" =
+  EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Loop_Head_Commit +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Resume_Managed_Head_TCB_Guard
+
 session EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop in "missed_loop" =
   EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Drain_Abs_Fold +
   options [document = false, quick_and_dirty = false, parallel_proofs = 0,
