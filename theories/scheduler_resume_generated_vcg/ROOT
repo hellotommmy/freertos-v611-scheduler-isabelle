@@ -324,11 +324,18 @@ session EAL6_FreeRTOS_V611_Scheduler_Resume_Pending_Control_Frame in "pending_co
 session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Gate_Base in "managed_gate_base" =
   EAL6_FreeRTOS_V611_Scheduler_Resume_Pending_Control_Frame +
   options [document = false, quick_and_dirty = false, parallel_proofs = 0,
-    timeout = 60]
+    timeout = 120]
   sessions
     EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Overlay
   theories
     Scheduler_Resume_Managed_Gate_Base
+
+session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Phase_Adapter_Base in "managed_phase_adapter_base" =
+  EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Gate_Base +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 60]
+  theories
+    Scheduler_Resume_Managed_Phase_Adapter_Base
 
 session EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop in "missed_loop" =
   EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Drain_Abs_Fold +

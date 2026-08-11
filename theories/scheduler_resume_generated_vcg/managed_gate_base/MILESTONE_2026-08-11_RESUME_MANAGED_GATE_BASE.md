@@ -58,9 +58,12 @@ The exclusive session
 `EAL6_FreeRTOS_V611_Scheduler_Resume_Pending_Control_Frame` and the smallest
 side dependency that supplies the protected cursor-general snapshot,
 `EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Overlay`.
-It has one theory and sets `document=false`, `quick_and_dirty=false`,
-`parallel_proofs=0`, and session `timeout=60`.  The repository wrapper bound
-was 300 seconds and the checker command used `-o quick_and_dirty=false -j 1`.
+It has one theory and sets `document=false`, `quick_and_dirty=false`, and
+`parallel_proofs=0`.  Its original session `timeout=60` admitted the initial
+58-second green run but was too tight for later cold parent-heap promotion.
+The bound is now 120 seconds; the measured promotion completed in 69 seconds.
+The repository wrapper bound remains 300 seconds and the checker command uses
+`-o quick_and_dirty=false -j 1`.
 
 The first cold attempt still used the broader First_Unsafe side dependency and
 hit the Isabelle session timeout before reporting a proof location.  The
