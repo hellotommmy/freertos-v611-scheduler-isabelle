@@ -2234,3 +2234,19 @@ session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_Ev
     timeout = 60]
   theories
     Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_Event_Dispatch
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_Top_Ready_Tail_Join in "scheduler_delayed_cursor_generalization/nested_tick_transport/top_ready_tail_join" =
+  EAL6_FreeRTOS_V611_Scheduler_Unlocked_Tick_Prefix_Source_Factors +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 180]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_Event_Dispatch
+  theories
+    Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_Top_Ready_Tail_Join
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_Top_Ready_Tail in "scheduler_delayed_cursor_generalization/nested_tick_transport/top_ready_tail" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_Top_Ready_Tail_Join +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 60]
+  theories
+    Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_Top_Ready_Tail
