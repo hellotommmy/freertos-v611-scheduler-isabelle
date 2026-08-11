@@ -351,6 +351,13 @@ session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Phase_Adapter_Family in "man
   theories
     Scheduler_Resume_Managed_Phase_Adapter_Family
 
+session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Phase_Adapter_Owner in "managed_phase_adapter_owner" =
+  EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Phase_Adapter_Family +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 60]
+  theories
+    Scheduler_Resume_Managed_Phase_Adapter_Owner
+
 session EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop in "missed_loop" =
   EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Drain_Abs_Fold +
   options [document = false, quick_and_dirty = false, parallel_proofs = 0,
