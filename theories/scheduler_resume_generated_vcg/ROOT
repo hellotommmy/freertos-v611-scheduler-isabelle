@@ -533,6 +533,13 @@ session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Reentry_Observation in "mana
   theories
     Scheduler_Resume_Managed_Reentry_Observation
 
+session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Reentry_Concrete_Shadow in "managed_reentry_concrete_shadow" =
+  EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Reentry_Observation +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Resume_Managed_Reentry_Concrete_Shadow
+
 session EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop in "missed_loop" =
   EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Drain_Abs_Fold +
   options [document = false, quick_and_dirty = false, parallel_proofs = 0,
