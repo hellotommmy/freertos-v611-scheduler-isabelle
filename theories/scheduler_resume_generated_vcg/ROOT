@@ -632,3 +632,12 @@ session EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Outer_Compose in "outer_co
     timeout = 300]
   theories
     Scheduler_Resume_Generated_Outer_Compose
+
+session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_After_Drain_Continuation in "managed_after_drain_continuation" =
+  EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Modular_Exit +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Outer_Compose
+  theories
+    Scheduler_Resume_Managed_After_Drain_Continuation
