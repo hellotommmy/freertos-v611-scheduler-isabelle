@@ -498,6 +498,13 @@ session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Reentry_Alignment in "manage
   theories
     Scheduler_Resume_Managed_Reentry_Alignment
 
+session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Reentry_Domain_Wake in "managed_reentry_domain_wake" =
+  EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Reentry_Alignment +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Resume_Managed_Reentry_Domain_Wake
+
 session EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop in "missed_loop" =
   EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Drain_Abs_Fold +
   options [document = false, quick_and_dirty = false, parallel_proofs = 0,
