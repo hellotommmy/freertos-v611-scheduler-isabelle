@@ -313,6 +313,8 @@
         'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_Whole_Tick_Rel_Spec',
         'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Overlay',
         'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Overlay_Capstone',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Missed_Decrement_Frame',
+        'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Missed_Body_Capstone',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Rel',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Remove_Decoder_Remove1',
         'EAL6_FreeRTOS_V611_Scheduler_Event_Root_Family_Remove_Predecessor',
@@ -1182,6 +1184,12 @@ switch ($session) {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Overlay_Capstone' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Missed_Decrement_Frame' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Missed_Body_Capstone' {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Family_Remove_Core' {

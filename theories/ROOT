@@ -2322,3 +2322,20 @@ session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Overlay_
     timeout = 60]
   theories
     Scheduler_Delayed_Cursor_General_Nested_Tick_Overlay_Capstone
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Missed_Decrement_Frame in "scheduler_delayed_cursor_generalization/nested_tick_missed_decrement_frame" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Overlay_Capstone +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 60]
+  theories
+    Scheduler_Delayed_Cursor_General_Nested_Tick_Missed_Decrement_Frame
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Missed_Body_Capstone in "scheduler_delayed_cursor_generalization/nested_tick_missed_body_capstone" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Nested_Tick_Missed_Decrement_Frame +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 60]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop
+    EAL6_FreeRTOS_V611_Scheduler_Resume_Missed_Tick_Replay_Frame
+  theories
+    Scheduler_Delayed_Cursor_General_Nested_Tick_Missed_Body_Capstone
