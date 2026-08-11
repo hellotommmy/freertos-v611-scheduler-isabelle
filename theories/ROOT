@@ -2206,3 +2206,10 @@ session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Rel_Spec_Probe 
     timeout = 60]
   theories
     Scheduler_Delayed_Cursor_General_Tick_Rel_Spec_Probe
+
+session EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_Core_Closure in "scheduler_delayed_cursor_generalization/nested_tick_transport/core_closure" =
+  EAL6_FreeRTOS_V611_Scheduler_Delayed_Cursor_General_Tick_Rel_Spec_Probe +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 60]
+  theories
+    Scheduler_Delayed_Cursor_General_Tick_Port_Overlay_Core_Closure
