@@ -183,6 +183,7 @@
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Reentry_Generic_Role',
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Reentry_Event_Role',
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Reentry_Abstract_Snapshot',
+        'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Reentry_Observation',
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop',
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Outer_Compose',
         'EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_After_Event',
@@ -833,6 +834,9 @@ switch ($session) {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Reentry_Abstract_Snapshot' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Reentry_Observation' {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Missed_Loop' {
