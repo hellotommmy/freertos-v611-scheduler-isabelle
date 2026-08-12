@@ -678,3 +678,10 @@ session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Outer_Loop_Nested in "manage
     EAL6_FreeRTOS_V611_Scheduler_Resume_Inner_Source
   theories
     Scheduler_Resume_Managed_Outer_Loop_Nested
+
+session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Outer_Loop_Depth_Zero in "managed_outer_loop_depth_zero" =
+  EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Outer_Loop_Nested +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Resume_Managed_Outer_Loop_Depth_Zero

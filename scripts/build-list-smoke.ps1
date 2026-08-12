@@ -204,6 +204,7 @@
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Outer_Loop_Safe',
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Outer_Loop_Unsafe',
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Outer_Loop_Nested',
+        'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Outer_Loop_Depth_Zero',
         'EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_After_Event',
         'EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_Priority_Frame',
         'EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_Tail_Insert',
@@ -915,6 +916,9 @@ switch ($session) {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Outer_Loop_Nested' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Outer_Loop_Depth_Zero' {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_After_Event' {
