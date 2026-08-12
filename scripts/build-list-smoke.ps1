@@ -200,6 +200,7 @@
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Outer_Compose',
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_After_Drain_Continuation',
         'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Outer_Entry',
+        'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Outer_Entry_Factor',
         'EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_After_Event',
         'EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_Priority_Frame',
         'EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_Tail_Insert',
@@ -899,6 +900,9 @@ switch ($session) {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Outer_Entry' {
+        @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
+    }
+    'EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Outer_Entry_Factor' {
         @(Join-Path $theoryRoot 'scheduler_resume_generated_vcg')
     }
     'EAL6_FreeRTOS_V611_Scheduler_One_Due_Task_Phases_After_Event' {
