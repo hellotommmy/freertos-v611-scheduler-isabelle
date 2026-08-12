@@ -641,3 +641,10 @@ session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_After_Drain_Continuation in 
     EAL6_FreeRTOS_V611_Scheduler_Resume_Generated_Outer_Compose
   theories
     Scheduler_Resume_Managed_After_Drain_Continuation
+
+session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Outer_Entry in "managed_outer_entry" =
+  EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_After_Drain_Continuation +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Resume_Managed_Outer_Entry
