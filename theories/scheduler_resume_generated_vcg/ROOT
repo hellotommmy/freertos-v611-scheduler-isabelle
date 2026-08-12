@@ -669,3 +669,12 @@ session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Outer_Loop_Unsafe in "manage
     timeout = 120]
   theories
     Scheduler_Resume_Managed_Outer_Loop_Unsafe
+
+session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Outer_Loop_Nested in "managed_outer_loop_nested" =
+  EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Outer_Loop_Unsafe +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  sessions
+    EAL6_FreeRTOS_V611_Scheduler_Resume_Inner_Source
+  theories
+    Scheduler_Resume_Managed_Outer_Loop_Nested
