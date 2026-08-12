@@ -655,3 +655,10 @@ session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Outer_Entry_Factor in "manag
     timeout = 120]
   theories
     Scheduler_Resume_Managed_Outer_Entry_Factor
+
+session EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Outer_Loop_Safe in "managed_outer_loop_safe" =
+  EAL6_FreeRTOS_V611_Scheduler_Resume_Managed_Outer_Entry_Factor +
+  options [document = false, quick_and_dirty = false, parallel_proofs = 0,
+    timeout = 120]
+  theories
+    Scheduler_Resume_Managed_Outer_Loop_Safe
